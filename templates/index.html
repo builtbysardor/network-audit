@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NetShield | CyberGlass Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <!-- SVG Definitions hidden -->
+    <svg width="0" height="0" style="position:absolute">
+        <defs>
+            <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#00F5A0" />
+                <stop offset="100%" stop-color="#00D9FF" />
+            </linearGradient>
+        </defs>
+    </svg>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="brand">
+                <div class="brand-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    </svg>
+                </div>
+                <div class="brand-text">NetShield</div>
+            </div>
+            
+            <ul class="nav-menu">
+                <li class="nav-item active">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                    <span class="nav-text">Dashboard</span>
+                </li>
+                <li class="nav-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    <span class="nav-text">Scanner</span>
+                </li>
+                <li class="nav-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                    <span class="nav-text">Devices</span>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-panel">
+            <header class="top-bar">
+                <h1 class="page-title">Network Audit</h1>
+                <div class="sys-status">
+                    <div>CPU: <span id="cpuUsage" style="color: var(--accent-green)">12%</span></div>
+                    <div>Local IP: <span id="localIpValue">192.168.x.x</span></div>
+                    <div style="color: var(--text-muted)">Last Scan: <span id="lastScanTime">Never</span></div>
+                </div>
+            </header>
+
+            <!-- Top Stats -->
+            <section class="stats-grid">
+                <div class="glass-box stat-card">
+                    <div class="stat-header">
+                        <span>Devices Online</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </div>
+                    <div class="stat-value" id="statDevices">0</div>
+                </div>
+                <div class="glass-box stat-card">
+                    <div class="stat-header">
+                        <span>Open Ports</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                    </div>
+                    <div class="stat-value" id="statPorts">0</div>
+                </div>
+                <div class="glass-box stat-card">
+                    <div class="stat-header">
+                        <span>Threat Score</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                    </div>
+                    <div class="stat-value" id="statThreatScore">0</div>
+                </div>
+                <div class="glass-box stat-card">
+                    <div class="stat-header">
+                        <span>Services</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                    </div>
+                    <div class="stat-value" id="statServices">0</div>
+                </div>
+            </section>
+
+            <!-- Dashboard Grid -->
+            <div class="dashboard-grid">
+                <!-- Left Column -->
+                <div class="left-column">
+                    
+                    <!-- Scan Control Panel -->
+                    <div class="glass-box">
+                        <div class="box-title">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                            New Target Scan
+                        </div>
+                        <div class="scan-form">
+                            <div class="input-row">
+                                <input type="text" id="targetInput" class="target-input" placeholder="Enter IP or Range (e.g. 192.168.1.0/24)">
+                                <select id="scanTypeSelect" class="scan-type-select">
+                                    <option value="quick">Quick Discovery</option>
+                                    <option value="port">Port Scan (Top 100)</option>
+                                    <option value="full">Deep Scan (Services & OS)</option>
+                                    <option value="vuln">Vulnerability Audit</option>
+                                </select>
+                            </div>
+                            <button id="startScanBtn" class="btn-primary">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                                Start Deep Scan
+                            </button>
+                        </div>
+                        
+                        <!-- Progress Ring (Hidden by default) -->
+                        <div id="scanProgressContainer" class="scan-progress-container">
+                            <div class="progress-ring-wrapper">
+                                <svg class="progress-ring" viewBox="0 0 140 140">
+                                    <circle class="ring-bg" cx="70" cy="70" r="65"></circle>
+                                    <circle class="ring-fill" id="ringFill" cx="70" cy="70" r="65"></circle>
+                                </svg>
+                                <div class="radar-blip"></div>
+                                <div class="ring-percent" id="ringPercentText">0%</div>
+                            </div>
+                            <div class="scan-status-title" id="scanStatusTitle">INITIALIZING...</div>
+                            <div class="scan-status-sub" id="scanStatusSub">Targetting packets</div>
+                        </div>
+                    </div>
+
+                    <!-- Live Devices Table -->
+                    <div class="glass-box" style="flex: 1; overflow-x: auto;">
+                        <div class="box-title">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
+                            Live Network Map
+                        </div>
+                        <table class="live-table">
+                            <thead>
+                                <tr>
+                                    <th>IP Address</th>
+                                    <th>Hostname</th>
+                                    <th>OS Fingerprint</th>
+                                    <th>Ports</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="devicesTableBody">
+                                <!-- Rendered dynamically via JS -->
+                                <tr>
+                                    <td colspan="5" style="text-align: center; color: var(--text-muted); padding: 40px 0;">No active scans. Enter a target above.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Right Column -->
+                <div class="right-column">
+                    <!-- Vulnerability Risk Chart -->
+                    <div class="glass-box">
+                        <div class="box-title">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                            Risk Overview
+                        </div>
+                        <div class="vuln-list">
+                            <div class="vuln-item">
+                                <div class="vuln-label high"><span>Critical / High</span> <span id="riskHighLabel">0</span></div>
+                                <div class="vuln-bar-bg"><div class="vuln-bar-fill high-fill" id="riskHighBar" style="width: 0%"></div></div>
+                            </div>
+                            <div class="vuln-item">
+                                <div class="vuln-label med"><span>Medium</span> <span id="riskMedLabel">0</span></div>
+                                <div class="vuln-bar-bg"><div class="vuln-bar-fill med-fill" id="riskMedBar" style="width: 0%"></div></div>
+                            </div>
+                            <div class="vuln-item">
+                                <div class="vuln-label low"><span>Low</span> <span id="riskLowLabel">0</span></div>
+                                <div class="vuln-bar-bg"><div class="vuln-bar-fill low-fill" id="riskLowBar" style="width: 0%"></div></div>
+                            </div>
+                            <div class="vuln-item">
+                                <div class="vuln-label info"><span>Informational</span> <span id="riskInfoLabel">0</span></div>
+                                <div class="vuln-bar-bg"><div class="vuln-bar-fill info-fill" id="riskInfoBar" style="width: 0%"></div></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recent Logs -->
+                    <div class="glass-box" style="flex: 1;">
+                        <div class="box-title">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                            System Logs
+                        </div>
+                        <div class="log-list" id="systemLogs">
+                            <div class="log-item">
+                                <span class="log-time">System Ready</span>
+                                <span>Awaiting scan target initialization</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Script -->
+    <script src="/static/js/app.js"></script>
+</body>
+</html>
