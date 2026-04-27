@@ -11,7 +11,11 @@
 
 ## 🚀 Features
 
-![CyberGlass Dashboard Preview](demo.png)
+### 📺 Live Demo
+![NetShield Audit Demo](demo.webp)
+
+### 📸 Interface Preview
+![CyberGlass Dashboard Preview](preview.png)
 
 | Feature | Description |
 |---------|-------------|
