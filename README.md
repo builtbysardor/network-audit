@@ -7,6 +7,12 @@
 [![Nmap](https://img.shields.io/badge/Nmap-required-red?style=flat-square)](https://nmap.org)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)](LICENSE)
 
+## Preview
+
+![NetShield Demo](demo.webp)
+
+![Dashboard Preview](preview.png)
+
 ## Features
 
 - **Port Scanning** — Identify open ports on all devices using Nmap
